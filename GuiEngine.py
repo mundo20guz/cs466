@@ -11,7 +11,7 @@
 # Dependencies
 #######################
 import sys
-from MMTGuiObjects import *
+from GuiObjects import *
 
 # Must Create a QApplication before a QWidget
 app = QApplication(sys.argv)
