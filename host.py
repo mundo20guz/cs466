@@ -27,28 +27,29 @@ def unzip_button():
 
 def uninstall_program_button():
 	""" Select program to uninstall """
-	uninstall_program()
-
+	#uninstall_program()
+	pass
 
 def choose_startupprograms_button():
 	""" Select which programs to allow to begin upon startup """
-	choose_startupprograms()
-
+	#choose_startupprograms()
+	pass
 
 def cleanup_folder_button():
 	""" Clean up selected folder. Looks for old or out of place files and 
 	asks users to delete.
 	"""
-	cleanup_folder()
-
+	#cleanup_folder()
+	pass
 
 def placeholder_button():
 	""" Placeholder for some other functionality """
-	placeholder()
-
+	#placeholder()
+	pass
 
 # Create Proto GUI for 1st iteration
 gui = Gui('CS-466 Gui')
+gui.addLabel('Available Functions')
 gui.addButton('Unzip',unzip_button)
 gui.addButton('Uninstall Program',uninstall_program_button)
 gui.addButton('Select Startup Programs',choose_startupprograms_button)
