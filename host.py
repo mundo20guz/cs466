@@ -15,7 +15,7 @@ from GuiEngine 				import *
 from unzipFunc 				import *
 #from uninstallFunc 		import *
 #from choose_startupFunc 	import *
-#from cleanup_folderFunc 	import *
+from cleanup_folderFunc 	import *
 #from placeholderFunc		import *
 
 #################################################################################################
@@ -39,7 +39,14 @@ def cleanup_folder_button():
 	""" Clean up selected folder. Looks for old or out of place files and 
 	asks users to delete.
 	"""
-	#cleanup_folder()
+	""" Clean up selected folder. Looks for old or out of place files and 
+	asks users to delete.
+	"""
+	clean = CleanUp()
+	clean.create_folder()
+	clean.open_folder()
+	clean.gather_old_files()
+	pass
 	pass
 
 def placeholder_button():
