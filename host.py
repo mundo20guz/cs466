@@ -14,7 +14,7 @@
 from GuiEngine 				import *
 from unzipFunc 				import *
 #from uninstallFunc 		import *
-#from choose_startupFunc 	import *
+from choose_startupFunc 	import *
 from cleanup_folderFunc 	import *
 #from placeholderFunc		import *
 
@@ -32,8 +32,7 @@ def uninstall_program_button():
 
 def choose_startupprograms_button():
 	""" Select which programs to allow to begin upon startup """
-	#choose_startupprograms()
-	pass
+	choose_startupprograms()
 
 def cleanup_folder_button():
 	""" Clean up selected folder. Looks for old or out of place files and 
