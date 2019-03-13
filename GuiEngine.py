@@ -38,6 +38,8 @@ class Gui(QWidget):
         self.lastDivie = 0
         # Call Initialize Function
         self.__initUI()
+        
+        self.startup_gui = None
 
 
     #########################################

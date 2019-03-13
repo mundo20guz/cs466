@@ -32,7 +32,7 @@ def uninstall_program_button():
 
 def choose_startupprograms_button():
 	""" Select which programs to allow to begin upon startup """
-	choose_startupprograms()
+	choose_startupprograms(gui)
 
 def cleanup_folder_button():
 	""" Clean up selected folder. Looks for old or out of place files and 
