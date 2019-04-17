@@ -133,6 +133,4 @@ def choose_startupprograms(gui):
 
     gui.startup_gui = Startup_Gui()
     gui.startup_gui.show()
-    
-    #startup_gui = Startup_Gui(gui)
-    #startup_gui.show()
+

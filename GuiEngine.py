@@ -40,6 +40,7 @@ class Gui(QWidget):
         self.__initUI()
         
         self.startup_gui = None
+        self.helpmenu_gui = None
 
 
     #########################################
