@@ -89,8 +89,9 @@ class Startup_Gui(QWidget):
             shortcut.Targetpath = target_path
             shortcut.WorkingDirectory = os.path.dirname(target_path)
             shortcut.save()
-        except OSException:
+        except OSError as e:
             self.statusLabel.setText('Error: unable to create shortcut')
+            print("Error: ", e)
             return
         
         self.statusLabel.setText('Added program ' + file_name + ' to startup programs')
@@ -119,8 +120,9 @@ class Startup_Gui(QWidget):
         # remove the (shortcut) file - will no longer run at startup
         try:
             os.remove(program_path)
-        except OSError:
+        except OSError as e:
             self.statusLabel.setText('Error: removing file')
+            print("Error: ", e)
             return
         
         self.statusLabel.setText('Removed program ' + self.startupComboBox.currentText() + ' from startup programs')
