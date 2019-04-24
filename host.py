@@ -38,15 +38,15 @@ def cleanup_folder_button():
 	""" Clean up selected folder. Looks for old or out of place files and 
 	asks users to delete.
 	"""
-	""" Clean up selected folder. Looks for old or out of place files and 
-	asks users to delete.
-	"""
 	clean = CleanUp()
 	clean.create_folder()
 	clean.open_folder()
 	clean.gather_old_files()
+
+	#self, tool_name, exe_path, startin, icon_path
+	clean.create_shortcut()
 	pass
-	pass
+
 
 def help_menu_button():
 	""" Display a help menu with instructions for each function/functionality """
