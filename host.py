@@ -13,16 +13,21 @@
 # Dependencies
 from GuiEngine 				import *
 from unzipFunc 				import *
-#from uninstallFunc 		import *
+from ContextMenu 			import *
 from choose_startupFunc 	import *
 from cleanup_folderFunc 	import *
 from help_menuFunc			import *
+import admin
+
 
 #################################################################################################
 
 def unzip_button():
 	""" Unzips folder """
-	unzip()
+	unzipAll()
+
+def auto_unzip():
+	automateUnZip()
 
 
 def uninstall_program_button():
@@ -41,38 +46,44 @@ def cleanup_folder_button():
 	clean = CleanUp()
 	clean.create_folder()
 	clean.open_folder()
-	clean.gather_old_files()
+	#clean.gather_old_files()
 
 	#self, tool_name, exe_path, startin, icon_path
 	clean.create_shortcut()
-	pass
 
 
 def help_menu_button():
 	""" Display a help menu with instructions for each function/functionality """
 	show_help_menu(gui)
 
-# Create Proto GUI for 1st iteration
+if not admin.isUserAdmin():
+        admin.runAsAdmin()
+
+# Add context menu feature
+con = ContextMenu('C:\\Users\\eguzman\\AppData\\Local\\Continuum\\anaconda3\\python.exe',
+		" \".\\stax.py\" \"%1\"",
+		" \".\\stax.py\" \"%1\"")
+
+con.edit_registry()
+
+# Build the Gui
 gui = Gui('CS-466 Gui')
 gui.addLabel('Available Functions')
 gui.addButton('Unzip (z)',unzip_button)
-gui.addButton('Uninstall Program (u)',uninstall_program_button)
+gui.addButton('Auto Unzip All (u)',auto_unzip)
 gui.addButton('Select Startup Programs (s)',choose_startupprograms_button)
 gui.addButton('Cleanup Folder (c)',cleanup_folder_button)
 gui.addButton('Help Menu (h)',help_menu_button)
 
+# Create shortcut keys
 gui.shortcut1 = QShortcut(QKeySequence('z'), gui)
 gui.shortcut1.activated.connect(unzip_button)
-
 gui.shortcut2 = QShortcut(QKeySequence('u'), gui)
 gui.shortcut2.activated.connect(uninstall_program_button)
-
 gui.shortcut3 = QShortcut(QKeySequence('s'), gui)
 gui.shortcut3.activated.connect(choose_startupprograms_button)
-
 gui.shortcut4 = QShortcut(QKeySequence('c'), gui)
 gui.shortcut4.activated.connect(cleanup_folder_button)
-
 gui.shortcut5 = QShortcut(QKeySequence('h'), gui)
 gui.shortcut5.activated.connect(help_menu_button)
 
