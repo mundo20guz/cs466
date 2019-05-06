@@ -8,6 +8,8 @@ import datetime
 class CleanUp:
     def __init__(self):
         self.directory = './Old_Files/'
+        self.subDirectoryImages = './Old_Files/Images/'
+        self.subDirectoryDocuments = './Old_Files/Documents/'
 
 
     def create_folder(self):
@@ -16,6 +18,16 @@ class CleanUp:
                 os.makedirs(self.directory)
         except OSError:
             print('Error: Creating directory' + self.directory)
+        try:
+            if not os.path.exists(self.subDirectoryImages):
+                os.makedirs(self.subDirectoryImages)
+        except OSError:
+            print('Error: Creating directory' + self.subDirectoryImages)
+        try:
+            if not os.path.exists(self.subDirectoryDocuments):
+                os.makedirs(self.subDirectoryDocuments)
+        except OSError:
+            print('Error: Creating directory' + self.subDirectoryDocuments)
 
     def create_shortcut(self):
         number = 1
@@ -24,7 +36,7 @@ class CleanUp:
             content = file.readlines()
             for line in content:
                 print(line)
-                for letter in line[-20:]:
+                for letter in line[-20:-1]:
                     if letter == "/":
                         fixedLine += ""
                     elif letter == "$":
@@ -33,10 +45,14 @@ class CleanUp:
                         fixedLine += ""
                     else:
                         fixedLine += letter
-                print(fixedLine)
                 count = "file" + str(number)
                 shell = Dispatch('WScript.Shell')
-                shortcut_file = os.path.join('./Old_Files/', fixedLine[:-1] + '.lnk')
+                if fixedLine[-4:] == ".png":
+                    shortcut_file = os.path.join('./Old_Files/Images/', fixedLine + '.lnk')
+                elif fixedLine[-4:] == "jpeg":
+                        shortcut_file = os.path.join('./Old_Files/Images/', fixedLine + '.lnk')
+                elif fixedLine[-4:] == ".doc":
+                    shortcut_file = os.path.join('./Old_Files/Documents/', fixedLine + '.lnk')
                 shortcut = shell.CreateShortCut(shortcut_file)
 
                 target = "C:"
@@ -74,7 +90,7 @@ class CleanUp:
         #os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]])
         for (root, dirs, files) in os.walk('/./', topdown=False, onerror=None, followlinks=False):
             for name in files:
-                print(os.path.join(root, name))
+                #print(os.path.join(root, name))
 
                 #grabs every file on the computer at the moment
                 #if end of file ends with .dll then dont add it
@@ -97,11 +113,11 @@ class CleanUp:
                     if statinfo < least:
                         least = statinfo
                         check = filename
-                    print(statinfo)
+                    #print(statinfo)
                     count += 1
-        print(count)
-        print(least)
-        print(check)
+        #print(count)
+        #print(least)
+        #print(check)
         text_file.close()
 
 
