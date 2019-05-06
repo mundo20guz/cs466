@@ -61,8 +61,8 @@ if not admin.isUserAdmin():
 
 # Add context menu feature
 con = ContextMenu('C:\\Users\\eguzman\\AppData\\Local\\Continuum\\anaconda3\\python.exe',
-		" \".\\stax.py\" \"%1\"",
-		" \".\\stax.py\" \"%1\"")
+		" \".\\Stax.py\" \"%1\"",
+		" \".\\UnStax.py\" \"%1\"")
 
 con.edit_registry()
 
