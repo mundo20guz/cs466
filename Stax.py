@@ -40,7 +40,6 @@ class Stax():
 
 
 test = Stax()
-
 test.stack()
-test.unstack()
+
 
