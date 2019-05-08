@@ -17,21 +17,21 @@ class HelpMenu_Gui(QWidget):
         unzipButton = QPushButton('Unzip Help')
         unzipButton.clicked.connect(self.unzip_help_button)
         
-        uninstallButton = QPushButton('Uninstall Help')
-        uninstallButton.clicked.connect(self.uninstall_help_button)
-        
         startupButton = QPushButton('Startup Help')
         startupButton.clicked.connect(self.startup_help_button)
         
         cleanupButton = QPushButton('Cleanup Help')
         cleanupButton.clicked.connect(self.cleanup_help_button)
         
+        staxButton = QPushButton('Stax Help')
+        staxButton.clicked.connect(self.stax_help_button)
+        
         #buttons with bullet points
         buttonLayout = QHBoxLayout()
         buttonLayout.addWidget(unzipButton)
-        buttonLayout.addWidget(uninstallButton)
         buttonLayout.addWidget(startupButton)
         buttonLayout.addWidget(cleanupButton)
+        buttonLayout.addWidget(staxButton)
         
         self.helpText = QTextEdit()
         self.helpText.setReadOnly(True)
@@ -44,27 +44,34 @@ class HelpMenu_Gui(QWidget):
         self.shortcut1 = QShortcut(QKeySequence('1'), self)
         self.shortcut1.activated.connect(self.unzip_help_button)
         
-        self.shortcut2 = QShortcut(QKeySequence('2'), self)
-        self.shortcut2.activated.connect(self.uninstall_help_button)
-        
-        self.shortcut3 = QShortcut(QKeySequence('3'), self)
+        self.shortcut3 = QShortcut(QKeySequence('2'), self)
         self.shortcut3.activated.connect(self.startup_help_button)
         
-        self.shortcut4 = QShortcut(QKeySequence('4'), self)
+        self.shortcut4 = QShortcut(QKeySequence('3'), self)
         self.shortcut4.activated.connect(self.cleanup_help_button)
+        
+        self.shortcut2 = QShortcut(QKeySequence('4'), self)
+        self.shortcut2.activated.connect(self.stax_help_button)
     
     def unzip_help_button(self):
         message = 'Unzip Help\n'
-        message += '\n•'
-        message += '\n•'
-        message += '\n•'
+        message += '\n• Lets user select a file of their choice to unzip and unzips it'
+        message += '\n• it then places extracted files in another chosen location'
+        message += '\n\nAuto Unzip Help\n'
+        message += '\n• Continously checks the downloads folder for new zip files'
+        message += '\n• when one is found, its files are extracted'
+        message += '\n• extracted files are placed in a new folder'
+        message += '\n• the originial zip file is then deleted'
         self.helpText.setText(message)
     
-    def uninstall_help_button(self):
-        message = 'Uninstall Help\n'
-        message += '\n•'
-        message += '\n•'
-        message += '\n•'
+    def stax_help_button(self):
+        message = 'Stax Help\n'
+        message += '\n• Groups scattered documents and pictures on the desktop together'
+        message += '\n• pdf, txt, & rtf files are put into a DocumentStax desktop file'
+        message += '\n• jpg, png, & gif files are put into a PictureStax desktop file'
+        message += '\n\nUnstax Help\n'
+        message += '\n• Undoes what the Stax operation did'
+        message += '\n• moves files from DocumentStax & PictureStax back to the desktop'
         self.helpText.setText(message)
     
     def startup_help_button(self):
@@ -79,9 +86,9 @@ class HelpMenu_Gui(QWidget):
     
     def cleanup_help_button(self):
         message = 'Cleanup Help\n'
-        message += '\n•'
-        message += '\n•'
-        message += '\n•'
+        message += '\n• Creates and uses the Old_Files directory to store results'
+        message += '\n• gathers files that have not been accessed in months'
+        message += '\n• creates a shortcut to each of these files in the Old_Files folder'
         self.helpText.setText(message)
 
 # display a gui with instructions for how to use the program
