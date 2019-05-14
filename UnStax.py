@@ -9,7 +9,7 @@ class Stax():
     def __init__(self):
         self.desktop_file_list = os.listdir(os.path.expanduser("~\\Desktop"))
         if not os.path.exists(os.path.expanduser("~\\Desktop") + "\\PictureStax"):
-            os.makedirs(os.path.expanduser("~\\Desktop") + "~\\PictureStax")
+            os.makedirs(os.path.expanduser("~\\Desktop") + "\\PictureStax")
         if not os.path.exists(os.path.expanduser("~\\Desktop") + "\\DocumentStax"):
             os.makedirs(os.path.expanduser("~\\Desktop") + "\\DocumentStax")
 
@@ -33,11 +33,7 @@ class Stax():
             for o in dox_file_list:
                 shutil.move(src=self.dox + "\\" + o, dst=os.path.expanduser("~\\Desktop"))
 
-
-
-
-
-
-
 test = Stax()
 test.unstack()
+
+
