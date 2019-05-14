@@ -1,4 +1,4 @@
-#Stax
+#UnStax
 #part 1: search the desktop for .png, .jpg, and .gif files, then move them into a new desktop folder labeled "pics"
 #part 2: search the desktop for .doc, .pdf, .rtf, and .txt files, then move them into a new desktop folder labeled "docs"m
 
@@ -9,7 +9,7 @@ class Stax():
     def __init__(self):
         self.desktop_file_list = os.listdir(os.path.expanduser("~\\Desktop"))
         if not os.path.exists(os.path.expanduser("~\\Desktop") + "\\PictureStax"):
-            os.makedirs(os.path.expanduser("~\\Desktop") + "~\\PictureStax")
+            os.makedirs(os.path.expanduser("~\\Desktop") + "\\PictureStax")
         if not os.path.exists(os.path.expanduser("~\\Desktop") + "\\DocumentStax"):
             os.makedirs(os.path.expanduser("~\\Desktop") + "\\DocumentStax")
 
@@ -35,11 +35,5 @@ class Stax():
 
 
 
-
-
-
-
 test = Stax()
 test.stack()
-
-
