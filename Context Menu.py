@@ -1,13 +1,13 @@
 import winreg
-
+import sys
 
 class ContextMenu:
 
     # NOTE: Path arg must lead to python executable, followed by scripts to execute
     def __init__(self,
-                 path="\"C:\\Windows\\py.exe\"",
-                 stax_path=" \"D:\\Projects\\Python\\Context Menu\\handler.py\" \"%1\"",
-                 unstax_path=" \"D:\\Projects\\Python\\Context Menu\\handler.py\" \"%1\""):
+                path=sys.executable,
+                stax_path=" \"D:\\Projects\\Python\\Context Menu\\handler.py\" \"%1\"",
+                unstax_path=" \"D:\\Projects\\Python\\Context Menu\\handler.py\" \"%1\""):
         self.python_path = path
         self.stax_path = stax_path
         self.unstax_path = unstax_path
@@ -16,16 +16,16 @@ class ContextMenu:
         self.unstax_command = self.python_path + self.unstax_path
 
     """
-            Code taken from http://sbirch.net/tidbits/context_menu.html
-            All credit belongs to the author.
+    Code taken from http://sbirch.net/tidbits/context_menu.html
+    All credit belongs to the author.
 
-            define_action_on(filetype, registry_title, command, title=None)
-                filetype: either an extension type (ex. ".txt") or one of the special
-                values ("*" or "Directory"). Note that "*" is files only--if you'd like
-                everything to have your action, it must be defined under "*" and "Directory"
-                registry_title: the title of the subkey, not important, but probably ought
-                to be relevant. If title=None, this is the text that will show up in the context menu.
-            """
+    define_action_on(filetype, registry_title, command, title=None)
+        filetype: either an extension type (ex. ".txt") or one of the special
+        values ("*" or "Directory"). Note that "*" is files only--if you'd like
+        everything to have your action, it must be defined under "*" and "Directory"
+        registry_title: the title of the subkey, not important, but probably ought
+        to be relevant. If title=None, this is the text that will show up in the context menu.
+    """
     def define_action_on(self, filetype, registry_title, command, title=None):
         # all these opens/creates might not be the most efficient way to do it, but it was the best I could do safely,
         # without assuming any keys were defined.
@@ -65,6 +65,10 @@ class ContextMenu:
         self.define_action_on(".txt", "Stax", self.stax_command, title="Stack")
         # .jpg CONTEXT
         self.define_action_on(".jpg", "Stax", self.stax_command, title="Stack")
+
+        self.define_action_on(".docx", "Stax", self.stax_command, title="Stack")
+        # .jpg CONTEXT
+        self.define_action_on(".pdf", "Stax", self.stax_command, title="Stack")
         # DIRECTORY CONTEXT
         self.define_action_on("Directory", "Unstax", self.unstax_command, title="Unstack")
 
