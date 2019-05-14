@@ -68,10 +68,6 @@ class CleanUp:
                 fixedLine = ""
 
 
-
-
-
-
     def open_folder(self):
         try:
             if os.path.exists(self.directory):
@@ -80,7 +76,7 @@ class CleanUp:
             print('Error: Directory not found')
 
     #gathers every file that hasn't been accessed in months
-    def gather_old_files(self):
+    def gather_old_files(self,clean_path='\\C:\\Users\\eguzman\\Desktop'):
         text_file = open("OldFiles.txt", "w")
 
 
@@ -88,7 +84,7 @@ class CleanUp:
         least = 9999999999
         check = ""
         #os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]])
-        for (root, dirs, files) in os.walk('/./', topdown=False, onerror=None, followlinks=False):
+        for (root, dirs, files) in os.walk(clean_path, topdown=False, onerror=None, followlinks=False):
             for name in files:
                 #print(os.path.join(root, name))
 
