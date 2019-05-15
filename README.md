@@ -17,3 +17,5 @@ How to Use
 9) In order to zip a file the user just needs to click ZIP. The user will be asked which files to zip and where to save the zip product.
 10) In order to unzip a file manually, the user needs to click UNZIP. THe user will be asked which file to unzip and where to save the new files.
 11) In order to unzip files automatically the user will need to go in the zip settings and select "unzip automatically". The next time a user downloads a zip file it will be unzipped automatically and the user will be prompted on where to save the file.
+
+** User can add HOTKEYS through the "EGO Preferences" Menu **
