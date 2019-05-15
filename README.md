@@ -1,1 +1,4 @@
-# cs466
+# EGO
+
+As operating systems, such as Windows, have become increasingly complex, bloated with new features and software, it has become more difficult for the average user to get the most out of their system. While some features may be insignificant to the average user, others may help them more than they know. The problem is that users don’t know how to unlock this potential. Although Windows has extensive documentation online to combat these sorts of issues, the average user will not care to put in such the work. That is where Ego steps in.
+Ego is your easy-to-use desktop helper that will automate some of the painstaking tasks that currently exist in Windows, as well as, give users true access to some features they might not know currently exist. Ego is equipped with a desktop organizer, the ability to automate the zipping/unzipping of files, and gives users the ability to remove startup programs that might otherwise slow down their overall system. 
